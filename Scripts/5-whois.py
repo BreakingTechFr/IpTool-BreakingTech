@@ -4,6 +4,7 @@ import subprocess
 import os
 import sys
 import colorama
+import requests
 
 colorama.init()
 
@@ -27,7 +28,7 @@ def get_whois_info(domain_name):
         print(f"Statut du domaine : {w.status}")
         print(f"Date d'enregistrement : {w.creation_date}")
         print(f"Date d'expiration : {w.expiration_date}")
-        print(f"Registrar : {w.registrar}")
+        print(f"Nom du Fournisseur : {w.registrar}")
         # Titulaire
         if w.name == None:
             print(GREEN + "\nInformations sur le propriétaire :" + RESET)
@@ -39,7 +40,7 @@ def get_whois_info(domain_name):
             print(f"Pays du titulaire : {w.country}")
         # Informations supplémentaires
         print(MAGENTA + "\nInformations sur le fournisseur d'accès internet :" + RESET)
-        print(f"\nNom du fournisseur : {w.org}")
+        print(f"\nNom du fournisseur FAI : {w.org}")
         print(f"Organisation : {w.name}")
         print(f"Fuseau horaire : {w.timezone}")
         print(f"Ville : {w.city}")
@@ -50,9 +51,29 @@ def get_whois_info(domain_name):
         print("\n------------------------------------------------------------------------------")
         print(f"{YELLOW}Remarque : Les informations sur l'adresse IP peuvent être approximatives.{RESET}")
         print("------------------------------------------------------------------------------")
-    except whois.parser.PywhoisError:
-        print("Erreur : impossible de récupérer les informations Whois.")
+    except whois.parser.PywhoisError as e:
+        print(f"{RED}Erreur : impossible de récupérer les informations Whois.{RESET}")
+        print(f"Message d'erreur : {e}")
 
+def get_geo_info(ip):
+    try:
+        url = f"http://ipapi.co/{ip}/json/"
+        response = requests.get(url)
+        data = response.json()
+        print(MAGENTA + "\nInformations de géolocalisation :" + RESET)
+        print(f"Pays : {data['country_name']}")
+        print(f"Ville : {data['city']}")
+        print(f"Code postal : {data['postal']}")
+        print(f"Latitude : {data['latitude']}")
+        print(f"Longitude : {data['longitude']}")
+        print(f"Fuseau horaire : {data['timezone']}")
+        print("\n------------------------------------------------------------------------------")
+        print(f"{YELLOW}Remarque : Les informations sur l'adresse IP peuvent être approximatives.{RESET}")
+        print("------------------------------------------------------------------------------")
+    except Exception as e:
+        print(f"{RED}Erreur : impossible de récupérer les informations de géolocalisation.{RESET}")
+        print(f"Message d'erreur : {e}")
+        
 # Fonction pour obtenir les informations sur une adresse IP
 def get_ip_info(ip):
     try:
@@ -61,8 +82,9 @@ def get_ip_info(ip):
         print(f"Nom de domaine correspondant à l'adresse IP : {host_name}")
         # Informations Whois pour le nom d'hôte
         get_whois_info(host_name)
-    except socket.herror:
-        print("Erreur : l'adresse IP n'existe pas.")
+    except Exception as e:
+        print(f"{RED}Erreur : impossible de récupérer les informations sur l'adresse IP.{RESET}")
+        print(f"Message d'erreur : {e}")
 
 # Boucle de menu
 while True:

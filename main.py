@@ -41,7 +41,7 @@ choixmenu = '''
 4) Scan des ports d'une Ip
 5) Whois une IP ou un nom de domaine
 6) Afficher votre IP aux formats IPV4 et IPV6
-9) Quitter le programme
+7) Quitter le programme
 --------------------------------------------------------------------
 
 '''

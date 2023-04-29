@@ -18,7 +18,7 @@ YELLOW = "\033[33m"
 MAGENTA = "\033[35m"
 WHITE = "\033[37m"
 
-# Fonction pour obtenir les informations Whois
+# Fonction pour obtenir les informations Whois 
 def get_whois_info(domain_name):
     try:
         w = whois.whois(domain_name)

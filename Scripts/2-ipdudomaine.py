@@ -56,9 +56,7 @@ def logo():
     clear = "\x1b[0m"
     colors = [36]
 
-    x = """
-Attention : La liste des noms de domaines doit être sans http:// ou https//
-			                  """
+    x = """\nAttention : La liste des noms de domaines doit être sans http:// ou https// \n"""
     for N, line in enumerate(x.split("\n")):
         sys.stdout.write("\x1b[1;%dm%s%s\n" % (random.choice(colors), line, clear))
         time.sleep(0.05)

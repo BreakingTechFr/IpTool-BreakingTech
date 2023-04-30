@@ -18,7 +18,7 @@ YELLOW = "\033[33m"
 MAGENTA = "\033[35m"
 WHITE = "\033[37m"
 
-# Fonction pour obtenir les informations Whois 
+# Fonction pour obtenir les informations Whois
 def get_whois_info(domain_name):
     try:
         w = whois.whois(domain_name)
@@ -86,7 +86,7 @@ def get_ip_info(ip):
         print(f"{RED}Erreur : impossible de récupérer les informations sur l'adresse IP.{RESET}")
         print(f"Message d'erreur : {e}")
 
-# Boucle de menu
+# La boucle de menu
 while True:
     try:
         print("\nQue souhaitez-vous faire ?")

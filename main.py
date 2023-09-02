@@ -15,7 +15,7 @@ if missing_libraries:
     print("Installation des bibliothèques nécessaires...")
     for lib in missing_libraries:
         subprocess.call(["pip", "install", lib])
-        
+
 colorama.init()
 
 CLEAR_SCREEN = "\033[2J"
@@ -44,8 +44,9 @@ intro = '''
 
 La boite à outils IP par Breakingtech.fr
 '''
+titre = '''\nMenu Principal'''
 
-choixmenu = '''                                   
+choixmenu = '''                               
 --------------------------------------------------------------------
 1) Supprimer les doublons de lignes dans un fichier .txt 
 2) Obtenir les adresses IP appartenant à un ou plusieurs domaines
@@ -60,8 +61,8 @@ choixmenu = '''
 while True:
     try:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(RED + logo + YELLOW + intro + GREEN + choixmenu + RESET)
-        choice = input('Menu Principal | Entrer un choix : ')
+        print(RED + logo + YELLOW + intro + WHITE + titre + GREEN + choixmenu + RESET)
+        choice = input('Entrer un choix : ')
         if choice.isdigit():
             if choice == '1':
                 subprocess.call(["python3", "Scripts/1-doublon.py"])

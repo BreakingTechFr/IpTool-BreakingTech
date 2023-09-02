@@ -19,9 +19,11 @@ def print_progression(current, total):
 
 def menu():
     print("\nMenu :")
+    print("\n\033[35m--------------------------------------------------------------------")
     print("1. Lancer le test de connexion")
     print("2. Retourner au script main.py")
-    choix = input("Entrez votre choix : ")
+    print("--------------------------------------------------------------------\033[0m")
+    choix = input("\nEntrez votre choix : ")
     return choix
 
 if __name__ == "__main__":

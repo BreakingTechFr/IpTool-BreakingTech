@@ -89,20 +89,22 @@ def showIPsOnly():
 def get_txt_file_path():
     root = tk.Tk()
     root.withdraw()
-    file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt")])
+    file_path = filedialog.askopenfilename(filetypes=[("Fichier texte", "*.txt")])
     return file_path
 
 try:
     while True:
+        print("\033[35m--------------------------------------------------------------------")
         print("1) Entrez le nom de domaine")
         print("2) Entrez le chemin du fichier .txt contenant plusieurs noms de domaines ou glissez déposez le fichier")
         print("3) Lire le fichier contenant les domaines et IP obtenus")
         print("4) Lire le fichier contenant uniquement les IP obtenus")
         print("5) Retour au menu principal")
+        print("--------------------------------------------------------------------\033[0m")
         choice = input("\nEntrez un choix: ")
 
         if choice == "1":
-            nam = input("Entrez le nom de domaine: ")
+            nam = input("\nEntrez le nom de domaine: ")
             get_IP(nam)
         elif choice == "2":
             while True:
@@ -130,15 +132,13 @@ try:
                         line = line.strip()
                         if line:
                             domain, ip = line.split()
-                            print("Domaine: " + BLUE + domain + RESET + " | IP: " + GREEN + ip + RESET)
+                            print("\nDomaine: " + BLUE + domain + RESET + " | IP: " + GREEN + ip + RESET)
         elif choice == "4":
             showIPsOnly()
         elif choice == "5":
             sys.exit()
         else:
             print(RED + "Choix invalide. Veuillez entrer un numéro valide." + RESET)
-
-        print("----------------------------")
 
 except KeyboardInterrupt:
     print("\nInterruption faite par l'utilisateur.")

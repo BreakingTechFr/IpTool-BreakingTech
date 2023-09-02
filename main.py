@@ -4,6 +4,18 @@ import subprocess
 from platform import system
 import colorama
 
+# Liste des bibliothèques nécessaires
+required_libraries = []
+
+# Vérifiez si chaque bibliothèque est installée
+missing_libraries = [lib for lib in required_libraries if not subprocess.call(["pip", "show", lib]) == 0]
+
+# Installez les bibliothèques manquantes
+if missing_libraries:
+    print("Installation des bibliothèques nécessaires...")
+    for lib in missing_libraries:
+        subprocess.call(["pip", "install", lib])
+        
 colorama.init()
 
 CLEAR_SCREEN = "\033[2J"

@@ -12,7 +12,7 @@ def get_args():
     #While quitting also display an error message
     if not options.target:
         #Code to handle if interface is not specified
-        parser.error("[-] Please specify an IP Address or Addresses, use --help for more info.")
+        parser.error("[-] Veuillez spécifier une ou plusieurs adresses IP, utilisez --help pour plus d'informations.")
     return options
   
 def scan(ip):
@@ -31,7 +31,7 @@ def scan(ip):
     return result
   
 def display_result(result):
-    print("-----------------------------------\nIP Address\tMAC Address\n-----------------------------------")
+    print("-----------------------------------\nAdresse IP\t Adresse MAC\n-----------------------------------")
     for i in result:
         print("{}\t{}".format(i["ip"], i["mac"]))
   

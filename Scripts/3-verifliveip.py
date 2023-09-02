@@ -11,9 +11,11 @@ white = '\033[00m'
 
 try:
     while True:
+        print("\033[35m--------------------------------------------------------------------")
         print("\n1) Vérifier l'IP pour un nom de domaine")
         print("2) Vérifier que les adresses IP sont en lignes à partir d'une liste d'adresses IP dans un fichier .txt")
         print("3) Revenir au menu principal")
+        print("--------------------------------------------------------------------\033[0m")
         choice = input("\nEntrez votre choix : ")
 
         if choice == '1':

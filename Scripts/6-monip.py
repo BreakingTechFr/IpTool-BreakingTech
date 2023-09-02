@@ -19,10 +19,12 @@ WHITE = "\033[37m"
 
 while True:
     try:
+        print("\n\033[35m--------------------------------------------------------------------")
         print("1) Afficher mon IPV4 et IPV6")
-        print("2) Retourner au menu principal\n")
+        print("2) Retourner au menu principal")
+        print("--------------------------------------------------------------------\033[0m")
 
-        choix = input("Entrez votre choix : ")
+        choix = input("\nEntrez votre choix : ")
 
         if choix == "1":
             # Obtenir l'adresse IPv4 publique

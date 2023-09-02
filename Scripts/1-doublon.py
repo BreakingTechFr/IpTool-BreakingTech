@@ -23,8 +23,10 @@ WHITE = "\033[37m"
 try:
     while True:
         print("\nQuel est votre choix ?")
-        print("\n1) Supprimer les doublons de lignes d'un fichier texte")
+        print("\n\033[35m--------------------------------------------------------------------")
+        print("1) Supprimer les doublons de lignes d'un fichier texte")
         print("2) Retourner au menu principal")
+        print("--------------------------------------------------------------------\033[0m")
         option = input("\nEntrez le numéro de l'option : ")
         option = option.strip()
 

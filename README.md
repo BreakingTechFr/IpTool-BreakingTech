@@ -8,3 +8,9 @@ Cet outil vous permet principalement d'avoir tout un tas d'informations sur un d
 - Lancez le fichier main.py en utilisant la commande :
 python3 /..chemin_du_fichier/main.py
 
+## Suivez-nous
+
+- [@breakingtechfr](https://twitter.com/BreakingTechFR) sur Twitter.
+- [Facebook](https://www.facebook.com/BreakingTechFr/) likez notre page.
+- [Instagram](https://www.instagram.com/breakingtechfr/) taguez nous sur vos publications !
+- [Discord](https://discord.gg/VYNVBhk) pour parler avec nous !

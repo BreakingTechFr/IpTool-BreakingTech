@@ -4,9 +4,14 @@
 Cet outil vous permet principalement d'avoir tout un tas d'informations sur un domaine ou une IP d'un domaine.
 
 # Utilisation :
-- Installez les dépendances avec la commande : pip install -r /..chemin_du_fichier/requirements.txt
+- Installez les dépendances avec la commande :
+```shell
+pip install requirements.txt
+```
 - Lancez le fichier main.py en utilisant la commande :
-python3 /..chemin_du_fichier/main.py
+```shell
+python main.py
+```
 
 ## Suivez-nous
 
